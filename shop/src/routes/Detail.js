@@ -1,4 +1,8 @@
-function Detail () {
+import { useState } from "react";
+
+function Detail (props) {
+    let [shoes] = useState();
+
     return (
         <div className="container">
             <div className="row">

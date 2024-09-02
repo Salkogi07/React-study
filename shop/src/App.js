@@ -36,11 +36,15 @@ function App() {
           </div>
           </>
         }></Route>
-        <Route path="/detail" element={<Detail/>}></Route>
+        <Route path="/detail" element={<Detail shoes={shoes}/>}></Route>
         <Route path="*" element={<div>없는 페이지입니다 404 Error</div>}></Route>
         <Route path="/about" element={<About/>}>
           <Route path="member" element={<div>멤버입니다</div>}></Route>
           <Route path="location" element={<About/>}></Route>
+        </Route>
+        <Route path='/event' element={<EventPage></EventPage>}>
+          <Route path='one' element={<p>첫 주문시 장병준 지급 이벤트</p>}></Route>
+          <Route path='two' element={<p>생일 기념 쿠폰 발급받기</p>}></Route>
         </Route>
       </Routes>
     </div>
@@ -51,6 +55,15 @@ function About() {
   return (
     <div>
       <h4>회사정보임</h4>
+      <Outlet></Outlet>
+    </div>
+  )
+}
+
+function EventPage() {
+  return (
+    <div>
+      <h4>오늘의 이벤트</h4>
       <Outlet></Outlet>
     </div>
   )
