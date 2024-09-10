@@ -1,36 +1,40 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components';
+import { Nav } from 'react-bootstrap';
 
-let Box = styled.div`
-    padding : 20px;
-    color : grey;
-`;
 
-let YelloBtn = styled.button`
-    background : ${props => props.bg};
-    color : black;
-    padding : 10px
-`;
+// let Box = styled.div`
+//     padding : 20px;
+//     color : grey;
+// `;
+
+// let YelloBtn = styled.button`
+//     background : ${props => props.bg};
+//     color : black;
+//     padding : 10px
+// `;
 
 function Detail (props) {
-    let [count,setCount] =useState(0);
-    useEffect(() => {
-        console.log("안녕 하세요");
-    });
+    // let [count,setCount] =useState(0);
+    // useEffect(() => {
+    //     console.log("안녕 하세요");
+    // });
 
-    let [alert,setAlert] =useState(true);
-    useEffect(() =>{
-        let timer = setTimeout(() => {
-            setAlert(false)
-        }, 2000);
-        return () =>{
-            clearTimeout(timer);
-        }
-    }, [] )
+    // let [alert,setAlert] =useState(true);
+    // useEffect(() =>{
+    //     let timer = setTimeout(() => {
+    //         setAlert(false)
+    //     }, 2000);
+    //     return () =>{
+    //         clearTimeout(timer);
+    //     }
+    // }, [] )
 
     let {id} = useParams();
-    let myItem = props.shoes.find((x) => {return x.id == id});
+    let myItem = props.shoes.find((x) => {
+        return x.id == id
+    });
 
 
     return (
@@ -46,12 +50,25 @@ function Detail (props) {
                     <button className="btn btn-danger">주문하기</button>
                 </div>
                 <div>
-                    <Box>
+                    {/* <Box>
                         <YelloBtn bg="orange" onClick={() => {setCount(count+1)}}>오렌지 버튼</YelloBtn>
                         <YelloBtn bg="blue">파랑 버튼</YelloBtn>
                         {alert == true ? <YelloBtn bg="Yellow">노란년</YelloBtn> : null}
-                        
-                    </Box>
+                    </Box> */}
+                    <Nav variant= "tabs" defaultActiveKey="link0">
+                        <Nav.Item>
+                            <Nav.Link eventKey="link0">버튼 0</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link eventKey="link1">버튼 1</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link eventKey="link2">버튼 2</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
+                    <div>내용 0</div>
+                    <div>내용 1</div>
+                    <div>내용 2</div>
                 </div>
             </div>
         </div>
