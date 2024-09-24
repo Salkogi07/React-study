@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
-import { Nav } from 'react-bootstrap';
-import '../App.css';
-import userEvent from '@testing-library/user-event';
+import { Nav } from "react-bootstrap";
+import "../App.css";
+import { 재고Context } from '../App.js';
 
 
 // let Box = styled.div`
@@ -63,8 +63,11 @@ function Detail (props) {
         }
     },[])
 
+    let {재고} = useContext(재고Context)
+
     return (
         <div className={'container start '+fade2}>
+            <div>{재고}</div>
             <div className="row">
                 <div className="col-md-6">
                     <img src="/shoe1.png" width="100%"></img>
@@ -77,11 +80,11 @@ function Detail (props) {
                 </div>
                 <div>
                     {/* <Box>
-                        <YelloBtn bg="orange" onClick={() => {setCount(count+1)}}>오렌지 버튼</YelloBtn>
-                        <YelloBtn bg="blue">파랑 버튼</YelloBtn>
-                        {alert == true ? <YelloBtn bg="Yellow">노란년</YelloBtn> : null}
+                        <YelloBtn bg="orange" onClick={() => {setCount.apply(count+1)}}>오렌지버튼</YelloBtn>
+                        <YelloBtn bg="blue">파란버튼</YelloBtn>
+                        <YelloBtn bg="yellow" id="ye">d</YelloBtn>
                     </Box> */}
-                    <Nav variant= "tabs" defaultActiveKey="link0">
+                    <Nav variant="tabs" defaultActiveKey="link0">
                         <Nav.Item>
                             <Nav.Link onClick={()=>{탭변경(0)}} eventKey="link0">버튼 0</Nav.Link>
                         </Nav.Item>
