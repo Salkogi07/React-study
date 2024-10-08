@@ -1,13 +1,13 @@
 import { Table } from 'react-bootstrap';
-import { useDispatch,useSelector } from 'react-redux';
-import { changeName } from '../store';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeName, addAge, addCount, decreaseCount } from '../store';
 
 function Cart() {
   let state = useSelector((state) => state)
   let dispatch = useDispatch()
   return (
     <div>
-      {state.user}의 장바구니
+      {state.user.name}의 장바구니
       <Table>
         <thead>
           <tr>
@@ -26,8 +26,14 @@ function Cart() {
                 <td>{state.cart[i].count}</td>
                 <td>
                   <button onClick={() =>{
-                    dispatch(changeName())
+                    dispatch(changeName('jack'))
+                    dispatch(addCount(i))
                   }}>+</button>
+                </td>
+                <td>
+                <button onClick={() =>{
+                    dispatch(decreaseCount(i))
+                  }}>-</button>
                 </td>
               </tr>
             ))
