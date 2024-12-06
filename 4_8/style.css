@@ -1,0 +1,17 @@
+.parents {
+    border: 2px solid purple;
+    /* justfiy content 메인 축 방향으로 정렬 */
+    /* justify-content: space-evenly; */
+    /* align items 수직 축 방향으로 정렬 */
+    /* align-items: flex-start; */
+    /* ============================== */
+    display: grid;
+    grid-template-columns: 200px 50px 100px;
+    grid-template-rows: 50px 100px;
+}
+.child{
+    /* padding: 10px;
+    margin: 10px; */
+    border: 2px solid blue;
+
+}
